@@ -13,4 +13,12 @@ export class CategoryRepository extends AppRepository<categoryDocument> {
         super(categoryModel)
     }
 
+    async findAllCategory() {
+        return this.findAll({}, ['imageId'])
+    }
+
+    async findOneCategory(_id: string, condition?: Object): Promise<any> {
+        return this.findOne(_id, condition, ["imageId"])
+    }
+
 } 
